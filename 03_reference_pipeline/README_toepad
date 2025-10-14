@@ -1,0 +1,7 @@
+This is the pipeline run for toepad and tissue samples, but it wound up being a bit messy.
+
+First, run the "reference_pipeline.slurm" script. The conda environments importantly have BWA, samtools, and GATK for the first bit (gatk-env) and vcftools and seqtk for the second (psmc-env).
+
+Then, change to the reference_based/consensus directory (where your consensus sequences are) and run  2_trim_ambig.py, a script developped by Brian Smith. It is run interactively like "python 2_trim_ambig.py 0.4" in the directory the contigs are housed. You can find it here: https://datadryad.org/dataset/doi:10.5061/dryad.n5tb2rbsp.
+
+Finally, run phyluce_thresh40_trim.slurm from the top level directory, the environment is first an environment with phyluce then an environment with trimal for one step.
